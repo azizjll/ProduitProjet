@@ -1,0 +1,28 @@
+<div *ngIf="products.length > 0; else noProducts">
+  <table>
+    <thead>
+      <tr>
+        <th>Nom du produit</th>
+        <th>Description</th>
+        <th>Prix (€)</th>
+        <th>Likes</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.name }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.likes.length }}</td>
+        <td>
+          <button (click)="onLike(product.id)">Like</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noProducts>
+  <p>Aucun produit disponible.</p>
+</ng-template>
